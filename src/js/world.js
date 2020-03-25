@@ -1,4 +1,5 @@
 import * as THREE from './3rdparty/threejs/build/three.module.js';
+import { OrbitControls } from './3rdparty/threejs/examples/jsm/controls/OrbitControls.js';
 
 const {
   AxesHelper,
@@ -85,12 +86,12 @@ function setupWorld() {
   scene = new Scene();
 
   // camera
-  const fov = 75;
+  const fov = 45;
   const aspect = 2;
   const near = 0.1;
-  const far = 1000;
+  const far = 100;
   camera = new PerspectiveCamera(fov, aspect, near, far);
-  camera.position.z = 6;
+  camera.position.set(0, 10, 20);
 
   // light
   const color = 0xffffff;
@@ -112,5 +113,10 @@ function setupWorld() {
     const grid = new GridHelper(10, 10, 0xcccccc, 0xcccccc);
     grid.position.set(0, 0, 0);
     scene.add(grid);
+
+    // orbitControls
+    const controls = new OrbitControls(camera, canvas);
+    controls.target.set(0, 5, 0);
+    controls.update();
   }
 }
