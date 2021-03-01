@@ -15,7 +15,7 @@
   },
   "author": "Wouter Hisschemoller",
   "dependencies": {
-    "three": "^0.114.0"
+    "three": "^0.125.0"
   },
   "devDependencies": {
     "express": "^4.17.1"
